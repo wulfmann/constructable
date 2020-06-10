@@ -1,8 +1,10 @@
 {
-  "name": "",
+  "name": "constructable",
   "version": "0.0.1",
-  "keywords": [],
-  "description": "",
+  "keywords": [
+    "cli"
+  ],
+  "description": "Constructable command-line interfaces",
   "main": "lib/index.js",
   "author": "Joe Snell <joepsnell@gmail.com>",
   "license": "MIT",
