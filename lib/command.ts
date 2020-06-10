@@ -1,7 +1,7 @@
 import { Construct } from 'constructs';
 
 export class Command extends Construct {
-  constructor(options: AppOptions = {}) {
-    super(undefined as any, '');
+  constructor(scope: Construct, name: string) {
+    super(scope, name);
   }
 }
