@@ -1,5 +1,7 @@
-import * as constructs from 'constructs';
+import { Construct } from 'constructs';
 
-export class Command extends constructs.Construct {
-
+export class Command extends Construct {
+  constructor(options: AppOptions = {}) {
+    super(undefined as any, '');
+  }
 }
