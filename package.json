@@ -37,7 +37,10 @@
     "name": "Joe Snell",
     "url": "https://github.com/wulfmann"
   },
-  "repository": "https://github.com/wulfmann/constructable",
+  "repository": {
+    "url": "https://github.com/wulfmann/constructable",
+    "type": "git"
+  },
   "jsii": {
     "outdir": "dist",
     "versionFormat": "short",
