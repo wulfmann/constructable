@@ -6,7 +6,7 @@ export class CLI extends Construct {
   }
   
   public synth(): void {
-    Node.of(this).synthesize();
+    Node.of(this).synthesize({ outdir: 'c.out' });
   }
   
   public parse(): void {
