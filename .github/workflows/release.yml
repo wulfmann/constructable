@@ -17,10 +17,8 @@ jobs:
         run: |
           pip3 install pipenv
           yarn install
-      - name: compile
-        run: |
-          tools/align-version.sh
-          yarn build
+      - name: build
+        run: yarn build
       - name: unit tests
         run: yarn test
       - name: create bundle
