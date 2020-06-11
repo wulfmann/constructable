@@ -6,16 +6,18 @@
   ],
   "description": "Constructable command-line interfaces",
   "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "author": "Joe Snell <joepsnell@gmail.com>",
   "license": "MIT",
   "files": [
     "lib"
   ],
   "scripts": {
-    "dev": "tsc -w",
-    "build": "tsc",
+    "dev": "jsii -w",
+    "build": "jsii",
     "lint": "eslint . --ext .ts",
-    "test": "jest"
+    "test": "yarn lint && jest",
+    "package": "jsii-pacmak"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^3.2.0",
@@ -26,7 +28,35 @@
     "@types/node": "^14.0.9",
     "jest": "^26.0.1",
     "ts-jest": "^26.1.0",
-    "prettier": "^2.0.5"
+    "prettier": "^2.0.5",
+    "jsii": "latest",
+    "jsii-pacmak": "latest",
+    "constructs": "latest"
+  },
+    "author": {
+    "name": "Joe Snell",
+    "url": "https://github.com/wulfmann"
+  },
+  "jsii": {
+    "outdir": "dist",
+    "versionFormat": "short",
+    "targets": {
+      "java": {
+        "package": "org.constructable",
+        "maven": {
+          "groupId": "org.constructable",
+          "artifactId": "constructable"
+        }
+      },
+      "python": {
+        "distName": "constructable",
+        "module": "constructable"
+      },
+      "dotnet": {
+        "namespace": "Org.Constructable",
+        "packageId": "Org.Constructable"
+      }
+    }
   },
   "jest": {
     "roots": [

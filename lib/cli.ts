@@ -7,6 +7,10 @@ export class CLI extends Construct {
     super(undefined as any, '');
   }
   
+  public synth(): void {
+    Node.of(this).synthesize();
+  }
+  
   public parse(): void {
     validate(this);
   }

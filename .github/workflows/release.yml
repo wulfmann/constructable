@@ -1,0 +1,36 @@
+name: Release
+on:
+  push:
+    branches:
+      - master
+    
+jobs:
+  build_artifact:
+    name: Build and upload artifact
+    if: github.repository == 'wulfmann/constructable'
+    runs-on: ubuntu-latest
+    container:
+      image: jsii/superchain
+    steps:
+      - uses: actions/checkout@v2
+      - name: installing dependencies
+        run: |
+          pip3 install pipenv
+          yarn install
+      - name: compile
+        run: |
+          tools/align-version.sh
+          yarn build
+      - name: unit tests
+        run: yarn test
+      - name: create bundle
+        run: yarn package
+      - name: Upload artifact
+        uses: actions/upload-artifact@v1
+        with:
+          name: dist
+          path: dist
+      - name: Release to github
+        run: yarn release:github
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
