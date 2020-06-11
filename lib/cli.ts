@@ -1,9 +1,7 @@
-import { Construct, IConstruct, Node } from 'constructs';
-
-export interface CLIOptions {}
+import { Construct, Node } from 'constructs';
 
 export class CLI extends Construct {
-  constructor(options: CLIOptions = {}) {
+  constructor() {
     super(undefined as any, '');
   }
   
@@ -16,10 +14,10 @@ export class CLI extends Construct {
   }
 }
 
-function validate(app: App) {
+function validate(cli: CLI) {
 
     // Note this is a copy-paste of https://github.com/aws/constructs/blob/master/lib/construct.ts#L438.
-    const errors = Node.of(app).validate();
+    const errors = Node.of(cli).validate();
     if (errors.length > 0) {
       const errorList = errors.map(e => `[${Node.of(e.source).path}] ${e.message}`).join('\n  ');
       throw new Error(`Validation failed with the following errors:\n  ${errorList}`);
